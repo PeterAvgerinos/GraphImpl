@@ -53,7 +53,7 @@ class Vertex {
             return this->ID;
         }
 
-        const list<Edge> & getList() const { 
+        list<Edge> & getList() { 
             return edgelist;
         }
 
@@ -179,9 +179,8 @@ class Graph {
             
 
         void addEdgebyID(const int &id1, const int &id2) {
-            if (!EdgeExistsbyID(id1, id2)) { 
-                Edge e(id2);
-                vertices[id1].getList().push_back(e);
+            if (!EdgeExistsbyID(id1, id2)) {
+                vertices[id1].getList().push_back({ id2 });
             }
         }
 
